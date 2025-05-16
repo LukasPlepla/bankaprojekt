@@ -1,0 +1,25 @@
+{% extends "users/layout.html" %}
+{% load static %}
+
+{% block body %}
+
+<!-- Načtení vlastního CSS pro registraci -->
+<link rel="stylesheet" href="{% static 'css/sign_up.css' %}">
+
+<div class="register-page">
+    <div class="form">
+        <h3 class="register-title">Registrace uživatele</h3>
+        <form method="post" class="register-form">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Sign up</button>
+        </form>
+        {% if form.errors %}
+            <div class="form-errors">
+                {{ form.errors }}
+            </div>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}

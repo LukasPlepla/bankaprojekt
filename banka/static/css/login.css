@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:300');
+
+body {
+    background: #f0f0f0;
+    font-family: "Lato", sans-serif;
+}
+
+.login {
+    width: 100%;
+    max-width: 400px;
+    margin: 80px auto;
+    padding: 40px 0;
+}
+
+.form {
+    background: #fff;
+    padding: 30px 30px 20px 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 20px 0 rgba(0,0,0,0.1), 0 5px 5px 0 rgba(0,0,0,0.05);
+    text-align: center;
+}
+
+.form h1 {
+    margin-bottom: 25px;
+    font-weight: 300;
+    color: #333;
+}
+
+.form input[type="text"],
+.form input[type="password"] {
+    font-family: "Lato", sans-serif;
+    outline: none;
+    background: #e7e4e4;
+    width: 100%;
+    border: none;
+    margin: 0 0 20px 0;
+    padding: 12px;
+    box-sizing: border-box;
+    font-size: 16px;
+    border-radius: 4px;
+    transition: background 0.2s;
+}
+
+.form input[type="text"]:focus,
+.form input[type="password"]:focus {
+    background: #d2d0d0;
+}
+
+.form input[type="submit"] {
+    background: #1976d2;
+    color: #fff;
+    border: none;
+    padding: 12px 0;
+    width: 100%;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.form input[type="submit"]:hover {
+    background: #1565c0;
+}
+
+.message {
+    background: #ffeaea;
+    color: #d32f2f;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+}

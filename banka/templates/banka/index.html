@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bankaprojekt</title>
+</head>
+<body>
+    <h1>Přehled bankovních účtů a údajů</h1>
+    <h2>Zákazníci</h2>
+    {% if zakaznici %}
+        <ul>
+            {% for zakaznik in zakaznici %}
+                <li>{{ zakaznik }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Žádní zákazníci.</p>
+    {% endif %}
+    
+    <h2>Typy účtů</h2>
+    {% if typy_uctu %}
+        <ul>
+            {% for typ in typy_uctu %}
+                <li>{{ typ }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Žádné typy účtů.</p>
+    {% endif %}
+    
+    <h2>Účty</h2>
+    {% if ucty %}
+        <ul>
+            {% for ucet in ucty %}
+                <li>{{ ucet }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Žádné účty.</p>
+    {% endif %}
+    
+    <h2>Poplatky</h2>
+    {% if poplatky %}
+        <ul>
+            {% for poplatek in poplatky %}
+                <li>{{ poplatek }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Žádné poplatky.</p>
+    {% endif %}
+    
+    <h2>Úrokové sazby</h2>
+    {% if urokove_sazby %}
+        <ul>
+            {% for sazba in urokove_sazby %}
+                <li>{{ sazba }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Žádné úrokové sazby.</p>
+    {% endif %}
+</body>
+</html>
