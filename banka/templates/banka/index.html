@@ -1,63 +1,154 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="cs">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bankaprojekt</title>
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{% url "user" %}"> Bankovnictví </a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url "login" %}"> Log in</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url "sign_up" %}"> Registrace </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url "index" %}"> Tabulky </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
     <h1>Přehled bankovních účtů a údajů</h1>
+
     <h2>Zákazníci</h2>
     {% if zakaznici %}
-        <ul>
+    <table class="custom-table">
+        <thead>
+            <tr>
+                <th>Jméno</th>
+                <th>Přijmení</th>
+                <th>Datum registrace</th>
+            </tr>
+        </thead>
+        <tbody>
             {% for zakaznik in zakaznici %}
-                <li>{{ zakaznik }}</li>
+            <tr>
+                <td>{{ zakaznik.jmeno }}</td>
+                <td>{{ zakaznik.prijmeni }}</td>
+                <td>{{ zakaznik.datum_registrace }}</td>
+            </tr>
             {% endfor %}
-        </ul>
+        </tbody>
+    </table>
     {% else %}
         <p>Žádní zákazníci.</p>
     {% endif %}
-    
+
     <h2>Typy účtů</h2>
     {% if typy_uctu %}
-        <ul>
+    <table class="custom-table">
+        <thead>
+            <tr>
+                <th>Název</th>
+                <th>Popis</th>
+            </tr>
+        </thead>
+        <tbody>
             {% for typ in typy_uctu %}
-                <li>{{ typ }}</li>
+            <tr>
+                <td>{{ typ.nazev }}</td>
+                <td>{{ typ.popis }}</td>
+            </tr>
             {% endfor %}
-        </ul>
+        </tbody>
+    </table>
     {% else %}
         <p>Žádné typy účtů.</p>
     {% endif %}
-    
+
     <h2>Účty</h2>
     {% if ucty %}
-        <ul>
+    <table class="custom-table">
+        <thead>
+            <tr>
+                <th>Zákazník</th>
+                <th>Typ</th>
+                <th>Číslo účtu</th>
+                <th>Datum založení</th>
+            </tr>
+        </thead>
+        <tbody>
             {% for ucet in ucty %}
-                <li>{{ ucet }}</li>
+            <tr>
+                <td>{{ ucet.zaakznik }}</td>
+                <td>{{ ucet.typ }}</td>
+                <td>{{ ucet.cislo_uctu }}</td>
+                <td>{{ ucet.datum_zalozeni }} Kč</td>
+            </tr>
             {% endfor %}
-        </ul>
+        </tbody>
+    </table>
     {% else %}
         <p>Žádné účty.</p>
     {% endif %}
-    
+
     <h2>Poplatky</h2>
     {% if poplatky %}
-        <ul>
+    <table class="custom-table">
+        <thead>
+            <tr>
+                <th>Účet</th>
+                <th>Částka</th>
+                <th>Popis</th>
+                <th>Datum</th>
+            </tr>
+        </thead>
+        <tbody>
             {% for poplatek in poplatky %}
-                <li>{{ poplatek }}</li>
+            <tr>
+                <td>{{ poplatek.ucet }}</td>
+                <td>{{ poplatek.castka }}</td>
+                <td>{{ poplatek.popis }}</td>
+                <td>{{ poplatek.datum }}</td>
+            </tr>
             {% endfor %}
-        </ul>
+        </tbody>
+    </table>
     {% else %}
         <p>Žádné poplatky.</p>
     {% endif %}
-    
+
     <h2>Úrokové sazby</h2>
     {% if urokove_sazby %}
-        <ul>
+    <table class="custom-table">
+        <thead>
+            <tr>
+                <th>Typ účtu</th>
+                <th>Sazba (%)</th>
+                <th>Platná od</th>
+                <th>Platná do</th>
+            </tr>
+        </thead>
+        <tbody>
             {% for sazba in urokove_sazby %}
-                <li>{{ sazba }}</li>
+            <tr>
+                <td>{{ sazba.typ_uctu }}</td>
+                <td>{{ sazba.sazba }}</td>
+                <td>{{ sazba.platna_od }}</td>
+                <td>{{ sazba.platna_do }}</td>
+            </tr>
             {% endfor %}
-        </ul>
+        </tbody>
+    </table>
     {% else %}
         <p>Žádné úrokové sazby.</p>
     {% endif %}

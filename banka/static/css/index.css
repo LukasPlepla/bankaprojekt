@@ -1,0 +1,119 @@
+body {
+    background: linear-gradient(120deg, #e3f0ff 0%, #f7fbff 100%);
+    font-family: 'Roboto', Arial, sans-serif;
+    margin: 0;
+    min-height: 100vh;
+}
+
+h1, h2 {
+    color: #174ea6;
+    text-shadow: 0 1px 0 #fff6;
+    margin-top: 32px;
+    margin-bottom: 18px;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+nav.navbar {
+    box-shadow: 0 2px 8px #0001;
+    margin-bottom: 30px;
+}
+
+.custom-table {
+    width: 92%;
+    margin: 0 auto 36px auto;
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 6px 24px rgba(23, 78, 166, 0.10);
+    overflow: hidden;
+    border: none;
+    font-size: 1.08em;
+    transition: box-shadow 0.2s;
+}
+
+.custom-table th, .custom-table td {
+    padding: 18px 16px;
+}
+
+.custom-table th {
+    background: linear-gradient(90deg, #174ea6 0%, #4f8cff 100%);
+    color: #fff;
+    font-weight: 700;
+    border: none;
+    text-align: left;
+    letter-spacing: 0.5px;
+}
+
+.custom-table tr {
+    border-bottom: 1px solid #e3f0ff;
+    transition: background 0.2s;
+}
+
+.custom-table tr:last-child {
+    border-bottom: none;
+}
+
+.custom-table tr:nth-child(even) {
+    background-color: #f1f7ff;
+}
+
+.custom-table tr:hover {
+    background: #deebff;
+}
+
+.custom-table td {
+    color: #174ea6;
+    border: none;
+}
+
+p {
+    color: #5c6f8c;
+    text-align: center;
+    font-style: italic;
+    margin-bottom: 30px;
+}
+
+@media (max-width: 900px) {
+    .custom-table, .custom-table th, .custom-table td {
+        font-size: 0.97em;
+        padding: 10px 6px;
+    }
+    h1, h2 {
+        font-size: 1.05em;
+    }
+}
+
+@media (max-width: 600px) {
+    .custom-table, .custom-table thead, .custom-table tbody, .custom-table th, .custom-table td, .custom-table tr {
+        display: block;
+        width: 100%;
+    }
+    .custom-table thead tr {
+        display: none;
+    }
+    .custom-table tr {
+        margin-bottom: 15px;
+        border-bottom: 2px solid #174ea6;
+        background: #fff;
+        box-shadow: 0 1px 4px rgba(23, 78, 166, 0.06);
+        border-radius: 12px;
+        padding: 10px 0;
+    }
+    .custom-table td {
+        position: relative;
+        padding-left: 50%;
+        min-height: 30px;
+        border: none;
+        background: none;
+    }
+    .custom-table td:before {
+        position: absolute;
+        top: 12px;
+        left: 18px;
+        width: 45%;
+        white-space: nowrap;
+        font-weight: bold;
+        color: #174ea6;
+        content: attr(data-label);
+    }
+}
