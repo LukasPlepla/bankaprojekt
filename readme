@@ -1,0 +1,22 @@
+1. Stáhněte projekt
+
+2. Vytvořte virtuální prostředí
+
+python -m venv venv
+venv\Scripts\activate
+
+3. Instalace djanga
+
+pip install django
+
+4. Migrace databáze pro vytvoření tabulek
+
+python manage.py migrate
+
+5. Můžete si vytvořit admin účet
+
+python manage.py createsuperuser
+
+6. Spuštění serveru
+
+python manage.py runserver
